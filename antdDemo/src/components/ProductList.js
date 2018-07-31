@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Table,Popconfirm,Button} from 'antd';
 import { connect } from 'dva';
 
@@ -26,11 +25,7 @@ const ProductList = ({onDelete,products}) => {
     )
 };
 
-ProductList.propTypes  = {
-    onDelete:PropTypes.func.isRequired,
-    products:PropTypes.array.isRequired
+function mapStateToProps(state){
+    return {};
 }
-
-export default connect(({ products }) => ({
-    products,
-}))(ProductList);
+export default connect(mapStateToProps)(ProductList);

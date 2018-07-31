@@ -17,6 +17,8 @@ const Products = ({dispatch,products}) =>{
     );
 } 
 
-export default connect(({products})=>({
-    products
-}))(Products);
+function mapStateToProps(state){
+    const {products} = state
+    return {products};
+}
+export default connect(mapStateToProps)(Products);
