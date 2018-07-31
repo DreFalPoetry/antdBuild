@@ -19,13 +19,14 @@ const ProductList = ({onDelete,products}) => {
     }];
     return (
         <Table
+            rowKey="name"
             dataSource={products}
             columns={columns}
         />
     )
 };
 
-ProductList.PropTypes = {
+ProductList.propTypes  = {
     onDelete:PropTypes.func.isRequired,
     products:PropTypes.array.isRequired
 }
