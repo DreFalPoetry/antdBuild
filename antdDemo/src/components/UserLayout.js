@@ -9,7 +9,7 @@ class UserLayout extends Component{
     render(){
         return (
             <Layout>
-                <SideMenu/>
+                <SideMenu menuKey={this.props.menuKey}/>
                 <Layout style={{ marginLeft: 200,  overflow: 'auto', height: '100vh'}}>
                     <Header style={{ background: '#fff', padding: 0 }} />
                     <Content style={{ margin: '24px 16px 0', overflow: 'initial',background:'white',padding:'20px' }}>

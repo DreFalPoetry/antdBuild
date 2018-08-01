@@ -3,7 +3,7 @@ import {connect} from 'dva';
 import ProductList from '../components/ProductList';
 import UserLayout from '../components/UserLayout';
 // = ({dispatch,products}) =>
-class Products extends Component  {
+class Item2 extends Component  {
     handleDelete = (id) =>{
         this.props.dispatch({
             type:'products/delete',
@@ -19,7 +19,7 @@ class Products extends Component  {
             </div>
         )
         return (
-            <UserLayout mainContent={mainContent}/>
+            <UserLayout mainContent={mainContent} menuKey={{'openMenuItem':'sub1','currentSelectItem':'2'}}/>
         );
     }   
     
@@ -29,4 +29,4 @@ function mapStateToProps(state){
     const {products} = state
     return {products};
 }
-export default connect(mapStateToProps)(Products);
+export default connect(mapStateToProps)(Item2);
