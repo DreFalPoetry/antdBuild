@@ -1,20 +1,28 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {connect} from 'dva';
 import ProductList from '../components/ProductList';
-
-const Products = ({dispatch,products}) =>{
-    function handleDelete(id){
-        dispatch({
+import UserLayout from '../components/UserLayout';
+// = ({dispatch,products}) =>
+class Products extends Component  {
+    handleDelete = (id) =>{
+        this.props.dispatch({
             type:'products/delete',
             payload:id
         })
     }
-    return (
-        <div>
-            <h2>List of Products</h2>
-            <ProductList onDelete={handleDelete} products={products}/>            
-        </div>
-    );
+
+    render(){
+        const mainContent = (
+            <div>
+                <h2>List of Products</h2>
+                <ProductList onDelete={this.handleDelete} products={this.props.products}/>            
+            </div>
+        )
+        return (
+            <UserLayout mainContent={mainContent}/>
+        );
+    }   
+    
 } 
 
 function mapStateToProps(state){
