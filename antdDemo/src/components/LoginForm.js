@@ -3,6 +3,7 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import {connect} from 'dva';
 import styles from '../routes/IndexPage.less';
 import {routerRedux} from 'dva/router';
+import {userLogin} from '../services/example';
 const FormItem = Form.Item;
 
 class LoginForm extends Component{
@@ -10,11 +11,16 @@ class LoginForm extends Component{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
-                console.log(this.props);
-                this.props.dispatch(
-                    routerRedux.push('/products')
-                )
+                const response = userLogin(values);
+                response.then(res => {
+                    console.log(res);
+                    if(res.status === "ok"){
+                        this.props.dispatch(
+                            routerRedux.push('/sub1/1')
+                        )
+                    }
+                })
+               
             }
         });
     }
